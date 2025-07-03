@@ -1,6 +1,6 @@
-package com.locauto.interfaces;
+package com.autorental.interfaces;
 
-import com.locauto.exceptions.DAOException;
+import com.autorental.exceptions.DAOException;
 
 import java.util.List;
 
