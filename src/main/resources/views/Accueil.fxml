@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.Accueil">
+<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.Accueil">
    <children>
       <ScrollPane>
          <content>
@@ -15,13 +23,11 @@
                <children>
                   <TableView layoutX="21.0" layoutY="302.0" prefHeight="129.0" prefWidth="483.0">
                     <columns>
-                      <TableColumn prefWidth="56.66668510437012" text="Image" />
                       <TableColumn prefWidth="58.66669464111328" text="Marque" />
-                        <TableColumn prefWidth="64.66665649414062" text="Modele" />
-                        <TableColumn prefWidth="55.33329772949219" text="Tarif" />
-                        <TableColumn prefWidth="102.00006103515625" text="Immatriculation" />
-                        <TableColumn minWidth="3.33331298828125" prefWidth="82.0" text="Catégorie" />
-                        <TableColumn prefWidth="60.333343505859375" text="Statut" />
+                        <TableColumn prefWidth="104.00000762939453" text="Modele" />
+                        <TableColumn prefWidth="93.99998474121094" text="Tarif" />
+                        <TableColumn prefWidth="136.0" text="Immatriculation" />
+                        <TableColumn prefWidth="91.3333740234375" text="Statut" />
                     </columns>
                   </TableView>
                   <Label layoutX="21.0" layoutY="270.0" text="Voitures disponibles">
@@ -31,7 +37,7 @@
                   <ComboBox layoutX="354.0" layoutY="267.0" prefWidth="150.0" promptText="Filtrer par..." />
                   <ImageView fitHeight="256.0" fitWidth="528.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../assets/cars_cropped.jpg" />
+                        <Image url="@../assets/cars_cropped.jpg" />
                      </image>
                   </ImageView>
                   <Rectangle height="248.0" layoutX="-4.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="529.0">

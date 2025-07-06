@@ -5,8 +5,12 @@ module com.example.locationvoituresapp {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires org.hibernate.orm.core;
+    requires jakarta.persistence;
+    requires java.naming;
 
-    opens com.example.locationvoituresapp to javafx.fxml;
+    opens com.autorental.runtime to javafx.fxml;
     opens com.autorental.views to javafx.fxml;
-    exports com.example.locationvoituresapp;
+    opens com.autorental.model to org.hibernate.orm.core;
+    exports com.autorental.runtime;
 }

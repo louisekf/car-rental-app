@@ -1,4 +1,4 @@
-package com.locauto.model;
+package com.autorental.model;
 
 public class Chauffeur {
     private int id;

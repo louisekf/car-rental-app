@@ -1,5 +1,4 @@
 package com.autorental.views;
 
-public interface UserFactory {
-
+public class AjoutVehicule {
 }

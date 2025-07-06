@@ -1,4 +1,4 @@
-package com.example.locationvoituresapp;
+package com.autorental.runtime;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/interfaces/Main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/MainAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Location de voitures");
         stage.setScene(scene);

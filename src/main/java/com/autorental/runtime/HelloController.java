@@ -1,4 +1,4 @@
-package com.example.locationvoituresapp;
+package com.autorental.runtime;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

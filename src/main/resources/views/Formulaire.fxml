@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.Formulaire">
+   <children>
+      <ScrollPane>
+         <content>
+            <Pane prefHeight="456.0" prefWidth="537.0">
+               <children>
+                  <Label layoutX="24.0" layoutY="24.0" text="Nouvelle réservation">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="23.0" layoutY="61.0" prefHeight="355.0" prefWidth="492.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
+                     <children>
+                        <DatePicker layoutX="275.0" layoutY="54.0" prefHeight="26.0" prefWidth="184.0" />
+                        <Label layoutX="274.0" layoutY="37.0" text="Date de retrait" />
+                        <Label layoutX="29.0" layoutY="37.0" text="Véhicule" />
+                        <ComboBox layoutX="29.0" layoutY="54.0" prefHeight="25.0" prefWidth="175.0" />
+                        <Label layoutX="275.0" layoutY="113.0" text="Type de réservation" />
+                        <ComboBox layoutX="275.0" layoutY="130.0" prefHeight="25.0" prefWidth="184.0" />
+                        <ComboBox layoutX="31.0" layoutY="209.0" prefHeight="25.0" prefWidth="174.0" />
+                        <Label layoutX="31.0" layoutY="192.0" text="Chauffeur" />
+                        <Button layoutX="161.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Enregistrer" />
+                        <Button layoutX="252.0" layoutY="310.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: black;" text="Annuler" textFill="WHITE" />
+                        <DatePicker layoutX="29.0" layoutY="130.0" prefHeight="25.0" prefWidth="175.0" />
+                        <Label layoutX="29.0" layoutY="113.0" text="Date de retour" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

@@ -1,13 +1,20 @@
-package com.locauto.model;
+package com.autorental.model;
 
+import jakarta.persistence.*;
+
+@Entity(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String nom;
     private String prenom;
+    private String nom;
     private String role;
     private String login;
     private String password;
+
+    public User(){}
 
     public User(String prenom, String nom, String role, String login, String password) {
         this.prenom = prenom;

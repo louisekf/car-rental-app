@@ -17,7 +17,7 @@
                      <children>
                         <ImageView fitHeight="69.0" fitWidth="64.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/ilm_cropped.png" />
+                              <Image url="@../assets/ilm_cropped.png" />
                            </image></ImageView>
                         <Label layoutX="62.0" layoutY="24.0" text="ILM Rental Cars">
                            <padding>
@@ -33,7 +33,7 @@
                      <children>
                         <ImageView fitHeight="28.0" fitWidth="26.0" layoutX="489.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../assets/.png" />
+                              <Image url="@../assets/.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="22.0" layoutY="23.0" text="Accueil">
