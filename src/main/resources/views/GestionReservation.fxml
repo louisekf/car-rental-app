@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="542.0" prefHeight="456.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.GestionReservations">
+    <children>
+        <BorderPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <center>
+                <VBox spacing="10" maxHeight="420.0" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets top="10" left="10" right="10" bottom="10" />
+                    </padding>
+                    <VBox spacing="5">
+                        <TableView fx:id="RentalTable" prefHeight="380.0" prefWidth="520.0">
+                            <columns>
+                                <TableColumn fx:id="ClientColumn" prefWidth="100" text="Client" />
+                                <TableColumn fx:id="vehiculeColumn" prefWidth="100" text="Vehicule" />
+                                <TableColumn fx:id="DateRetraitColumn" prefWidth="100" text="Date Retrait" />
+                                <TableColumn fx:id="DateRetourColumn" prefWidth="100" text="Date Retour" />
+                                <TableColumn fx:id="StatutColumn" prefWidth="120" text="Statut" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
