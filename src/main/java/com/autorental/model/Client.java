@@ -15,10 +15,11 @@ public class Client {
     private String tel;
     private String adresse;
     private int pts_fidelite;
+    private double solde;
 
     public Client(){}
 
-    public Client(int id, String nom, String prenom, String email, String tel, String adresse, int pts_fidelite) {
+    public Client(int id, String nom, String prenom, String email, String tel, String adresse, int pts_fidelite, double solde) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -26,6 +27,7 @@ public class Client {
         this.tel = tel;
         this.adresse = adresse;
         this.pts_fidelite = pts_fidelite;
+        this.solde = solde;
     }
 
     public Client(String nom, String prenom, String email, String tel, String adresse) {
@@ -35,6 +37,7 @@ public class Client {
         this.tel = tel;
         this.adresse = adresse;
         setPts_fidelite(0);
+        setSolde(0.0);
     }
 
     public int getId() {
@@ -92,4 +95,8 @@ public class Client {
     public void setPts_fidelite(int pts_fidelite) {
         this.pts_fidelite = pts_fidelite;
     }
+
+    public double getSolde() { return solde; }
+
+    public void setSolde(double solde) { this.solde = solde; }
 }
