@@ -1,4 +1,9 @@
 package com.autorental.dao.impl;
 
-public class HibernateFactureDaoImpl {
+import com.autorental.model.Facture;
+
+public class HibernateFactureDaoImpl extends HibernateObjectDaoImpl<Facture>{
+    public HibernateFactureDaoImpl() {
+        super(Facture.class);
+    }
 }

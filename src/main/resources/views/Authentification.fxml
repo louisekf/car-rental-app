@@ -5,15 +5,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.Authentification">
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.autorental.controllers.Authentification">
+
    <children>
       <Pane prefHeight="400.0" prefWidth="279.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="245.0" fitWidth="238.0" layoutX="21.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/ilm_cropped.png" />
-               </image></ImageView>
-         </children></Pane>
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+
       <Pane layoutX="275.0" prefHeight="400.0" prefWidth="325.0">
          <children>
             <Label layoutX="110.0" layoutY="70.0" prefHeight="24.0" prefWidth="123.0" text="Bienvenue">
@@ -21,16 +28,21 @@
                   <Font name="Britannic Bold" size="24.0" />
                </font>
             </Label>
-            <Label layoutX="59.0" layoutY="126.0" text="Nom d'utilisateur/Email" />
+
+            <Label layoutX="59.0" layoutY="126.0" text="Email" />
+            <TextField fx:id="loginField" layoutX="59.0" layoutY="143.0" prefHeight="25.0" prefWidth="207.0" />
+
+
+
             <Label layoutX="59.0" layoutY="189.0" text="Mot de passe" />
-            <TextField layoutX="59.0" layoutY="143.0" prefHeight="25.0" prefWidth="207.0" />
-            <TextField layoutX="59.0" layoutY="206.0" prefHeight="25.0" prefWidth="207.0" />
-            <Button layoutX="67.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Se connecter" />
-            <Button layoutX="178.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Annuler" />
+            <PasswordField fx:id="passwordField" layoutX="59.0" layoutY="206.0" prefHeight="25.0" prefWidth="207.0"/>
+
+            <Button layoutX="67.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Se connecter" onAction="#onLogin"/>
+            <Button layoutX="178.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Annuler" onAction="#onCancel"/>
+
             <Label layoutX="90.0" layoutY="320.0" prefHeight="17.0" prefWidth="164.0" text="Nous n'avez pas de compte?" />
             <Hyperlink layoutX="123.0" layoutY="337.0" onAction="#goToInscription" prefHeight="17.0" prefWidth="98.0" text="Inscrivez-vous!" />
          </children>
       </Pane>
-      <Accordion />
    </children>
 </AnchorPane>

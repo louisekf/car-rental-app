@@ -1,6 +1,13 @@
 package com.autorental.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "clients")
 public class Client {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
     private String prenom;
@@ -8,6 +15,8 @@ public class Client {
     private String tel;
     private String adresse;
     private int pts_fidelite;
+
+    public Client(){}
 
     public Client(int id, String nom, String prenom, String email, String tel, String adresse, int pts_fidelite) {
         this.id = id;
@@ -19,13 +28,13 @@ public class Client {
         this.pts_fidelite = pts_fidelite;
     }
 
-    public Client(String nom, String prenom, String email, String tel, String adresse, int pts_fidelite) {
+    public Client(String nom, String prenom, String email, String tel, String adresse) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.tel = tel;
         this.adresse = adresse;
-        this.pts_fidelite = pts_fidelite;
+        setPts_fidelite(0);
     }
 
     public int getId() {

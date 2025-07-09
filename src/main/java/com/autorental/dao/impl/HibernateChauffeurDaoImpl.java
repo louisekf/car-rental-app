@@ -1,4 +1,9 @@
 package com.autorental.dao.impl;
 
-public class HibernateChauffeurDaoImpl {
+import com.autorental.model.Chauffeur;
+
+public class HibernateChauffeurDaoImpl extends HibernateObjectDaoImpl<Chauffeur>{
+    public HibernateChauffeurDaoImpl() {
+        super(Chauffeur.class);
+    }
 }

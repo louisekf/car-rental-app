@@ -1,4 +1,9 @@
 package com.autorental.dao.impl;
 
-public class HibernateClientDaoImpl {
+import com.autorental.model.Client;
+
+public class HibernateClientDaoImpl extends HibernateObjectDaoImpl<Client>{
+    public HibernateClientDaoImpl() {
+        super(Client.class);
+    }
 }

@@ -1,4 +1,4 @@
-package com.autorental.views;
+package com.autorental.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class GestionVehicules {
+public class GestionChauffeur {
+
     private AnchorPane mainContentPane;
 
     public void setMainContentPane(AnchorPane contentPane) {
@@ -14,10 +15,9 @@ public class GestionVehicules {
     }
 
     @FXML
-    private void loadAjoutVehiculePage() {
-        if (mainContentPane == null) return;
+    private void loadAjoutChauffeurPage() {
         try {
-            AnchorPane ajoutPane = FXMLLoader.load(getClass().getResource("/views/AjoutVehicule.fxml"));
+            AnchorPane ajoutPane = FXMLLoader.load(getClass().getResource("/views/AjoutChauffeur.fxml"));
             mainContentPane.getChildren().setAll(ajoutPane);
             AnchorPane.setTopAnchor(ajoutPane, 0.0);
             AnchorPane.setBottomAnchor(ajoutPane, 0.0);
@@ -29,10 +29,9 @@ public class GestionVehicules {
     }
 
     @FXML
-    private void loadModifierVehiculePage() {
-        if (mainContentPane == null) return;
+    private void loadModifierChauffeurPage() {
         try {
-            AnchorPane modifPane = FXMLLoader.load(getClass().getResource("/views/ModifierVehicule.fxml"));
+            AnchorPane modifPane = FXMLLoader.load(getClass().getResource("/views/ModifierChauffeur.fxml"));
             mainContentPane.getChildren().setAll(modifPane);
             AnchorPane.setTopAnchor(modifPane, 0.0);
             AnchorPane.setBottomAnchor(modifPane, 0.0);

@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="522.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.MainAdmin">
+<AnchorPane prefHeight="522.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.MainAdmin">
    <children>
       <BorderPane prefHeight="522.0" prefWidth="688.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -36,7 +36,7 @@
                               <Image url="@../assets/.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="22.0" layoutY="23.0" text="Dashboard">
+                        <Label fx:id="pageTitleLabel" layoutX="22.0" layoutY="23.0" text="Dashboard">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -57,7 +57,7 @@
                   <Button mnemonicParsing="false" onAction="#loadGestionChauffeursPage" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: white;" text="Gestion Chauffeurs" />
                   <Button mnemonicParsing="false" onAction="#loadGestionVehiculesPage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white;" text="Gestion Vehicules" />
                   <Button mnemonicParsing="false" onAction="#loadGestionReservationsPage" prefHeight="43.0" prefWidth="149.0" style="-fx-background-color: white;" text="Gestion Reservations" />
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
+                  <Button mnemonicParsing="false" onAction="#handleDeconnexion" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
                      <VBox.margin>
                         <Insets top="252.0" />
                      </VBox.margin>
@@ -73,7 +73,8 @@
             <AnchorPane fx:id="contentPane" prefHeight="456.0" prefWidth="542.0">
                <children>
                   <Line endX="437.0" layoutX="101.0" startX="-100.0" stroke="#848484" />
-               </children></AnchorPane>
+               </children>
+            </AnchorPane>
          </center>
       </BorderPane>
       <Line endX="-1.6666717529296875" endY="-7.833333492279053" layoutX="153.0" startX="-3.0000152587890625" startY="522.0" stroke="#919191" />

@@ -1,74 +1,42 @@
 package com.autorental.dao.impl;
 
-import com.autorental.dao.IDao;
 import com.autorental.db.HibernateConnection;
-import com.autorental.exceptions.DAOException;
 import com.autorental.model.User;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
-import java.util.List;
+public class HibernateUserDaoImpl extends HibernateObjectDaoImpl<User>{
+    public HibernateUserDaoImpl() {
+        super(User.class);
+    }
 
-public class HibernateUserDaoImpl implements IDao<User> {
-
-    @Override
-    public void create(User user) throws DAOException {
-        try {
-            Session session = HibernateConnection.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-            session.persist(user);
-            transaction.commit();
+    //Quand vous créer une opération, mettez openSession() au lieu de getSession
+    public boolean loginExists(String login) {
+        try (Session session = HibernateConnection.getInstance().openSession()) {
+            Long count = session.createQuery(
+                            "SELECT COUNT(u) FROM User u WHERE u.login = :login", Long.class)
+                    .setParameter("login", login)
+                    .uniqueResult();
+            return count != null && count > 0;
         } catch (Exception e) {
-            throw new DAOException("ERROR : " + e.getClass() + " : " + e.getMessage());
+            e.printStackTrace();
+            return false;
         }
     }
 
-    @Override
-    public User read(int id) throws DAOException {
-        try {
-            Session session = HibernateConnection.getInstance().getSession();
-            return session.find(User.class, id);
+    public User checkLogin(String loginOrEmail, String password) {
+        try (Session session = HibernateConnection.getInstance().openSession()) {
+            String hql = "FROM User u WHERE u.login = :loginOrEmail " +
+                    "AND u.password = :password";
+            Query<User> query = session.createQuery(hql, User.class);
+            query.setParameter("loginOrEmail", loginOrEmail);
+            query.setParameter("password", password);
+            return query.uniqueResult();
         } catch (Exception e) {
-            throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
+            System.err.println("Erreur lors de la vérification du login : " + e.getMessage());
+            return null;
         }
     }
 
-    @Override
-    public List<User> list() throws DAOException {
-        try {
-            Session session = HibernateConnection.getInstance().getSession();
-            return session.createQuery("select u " + " from users u", User.class).getResultList();
-        } catch (Exception e) {
-            throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
-        }
-    }
 
-    @Override
-    public void update(User entity) throws DAOException {
-        try {
-            Session session = HibernateConnection.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-            session.merge(entity);
-            transaction.commit();
-
-        } catch (Exception e) {
-            throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
-        }
-    }
-
-    @Override
-    public void delete(int id) throws DAOException {
-        try {
-            Session session = HibernateConnection.getInstance().getSession();
-            Transaction transaction = session.beginTransaction();
-            User user = read(id);
-            if (user != null) {
-                session.remove(user);
-            }
-
-            transaction.commit();
-        } catch (Exception e) {
-            throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
-        }
-    }
 }

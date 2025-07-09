@@ -1,4 +1,4 @@
-package com.autorental.views;
+package com.autorental.controllers;
 
 public class ModifierChauffeur {
 }

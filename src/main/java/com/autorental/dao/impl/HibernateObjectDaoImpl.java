@@ -19,7 +19,7 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
     @Override
     public void create(T entity) throws DAOException {
         try {
-            Session session = HibernateConnection.getInstance().getSession();
+            Session session = HibernateConnection.getInstance().openSession();
             Transaction transaction = session.beginTransaction();
             session.persist(entity);
             transaction.commit();
@@ -31,7 +31,7 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
     @Override
     public T read(int id) throws DAOException {
         try {
-            Session session = HibernateConnection.getInstance().getSession();
+            Session session = HibernateConnection.getInstance().openSession();
             return session.find(type, id);
         } catch (Exception e) {
             throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
@@ -41,7 +41,7 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
     @Override
     public List<T> list() throws DAOException {
         try {
-            Session session = HibernateConnection.getInstance().getSession();
+            Session session = HibernateConnection.getInstance().openSession();
             String query = "from " + type.getSimpleName();
             return session.createQuery(query, type).getResultList();
         } catch (Exception e) {
@@ -52,7 +52,7 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
     @Override
     public void update(T entity) throws DAOException {
         try {
-            Session session = HibernateConnection.getInstance().getSession();
+            Session session = HibernateConnection.getInstance().openSession();
             Transaction transaction = session.beginTransaction();
             session.merge(entity);
             transaction.commit();
@@ -64,7 +64,7 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
     @Override
     public void delete(int id) throws DAOException {
         try {
-            Session session = HibernateConnection.getInstance().getSession();
+            Session session = HibernateConnection.getInstance().openSession();
             Transaction transaction = session.beginTransaction();
             T entity = read(id);
             if (entity != null) {

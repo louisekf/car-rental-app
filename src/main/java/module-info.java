@@ -10,7 +10,7 @@ module com.example.locationvoituresapp {
     requires java.naming;
 
     opens com.autorental.runtime to javafx.fxml;
-    opens com.autorental.views to javafx.fxml;
+    opens com.autorental.controllers to javafx.fxml;
     opens com.autorental.model to org.hibernate.orm.core;
     exports com.autorental.runtime;
 }

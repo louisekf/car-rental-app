@@ -6,12 +6,18 @@
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_autorental?serverTimezone=UTC</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db_autorental(1)?serverTimezone=UTC</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password"></property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.highlight_sql">true</property>
     <mapping class="com.autorental.model.User" />
+    <mapping class="com.autorental.model.Client"/>
+        <mapping class="com.autorental.model.Chauffeur" />
+        <mapping class="com.autorental.model.Vehicule"/>
+        <mapping class="com.autorental.model.Reservation" />
+        <mapping class="com.autorental.model.Facture"/>
+
 
     </session-factory>
 </hibernate-configuration>

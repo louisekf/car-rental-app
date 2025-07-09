@@ -9,8 +9,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class HibernateConnection {
     private static final HibernateConnection instance = new HibernateConnection();
-    private final Session session;
+    //private final Session session;
     private final SessionFactory factory;
+
     private HibernateConnection() {
         StandardServiceRegistry ssr =
                 new StandardServiceRegistryBuilder()
@@ -19,19 +20,22 @@ public class HibernateConnection {
 
         Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
 
-// Creating Hibernate Session Factory Instance
-    factory = meta.getSessionFactoryBuilder().build();
-// Creating The Hibernate's Session Object
-    session = factory.openSession();
-
+        // Creating Hibernate Session Factory Instance
+        factory = meta.getSessionFactoryBuilder().build();
+        // Creating The Hibernate's Session Object
+        //session = factory.openSession();
     }
 
-    public Session getSession() {
-        if (session == null) {
-            new HibernateConnection();
-        }
-        return session;
+    public Session openSession() {
+        return factory.openSession();
     }
+
+//    public Session getSession() {
+//        if (session == null) {
+//            new HibernateConnection();
+//        }
+//        return session;
+//    }
 
     public static HibernateConnection getInstance() {
         return instance;

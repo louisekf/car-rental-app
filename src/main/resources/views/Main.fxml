@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="522.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.views.Main">
+<AnchorPane prefHeight="522.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Main">
    <children>
       <BorderPane prefHeight="522.0" prefWidth="688.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -36,7 +36,7 @@
                               <Image url="@../assets/.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="22.0" layoutY="23.0" text="Accueil">
+                        <Label fx:id="pageTitleLabel" layoutX="22.0" layoutY="23.0" text="Accueil">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -57,7 +57,7 @@
                   <Button mnemonicParsing="false" onAction="#loadReservationsPage" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: white;" text="Mes réservations" />
                   <Button mnemonicParsing="false" onAction="#loadFormulairePage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white;" text="Formulaire" />
                   <Button mnemonicParsing="false" onAction="#loadSettingsPage" prefHeight="43.0" prefWidth="149.0" style="-fx-background-color: white;" text="Paramètres" />
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
+                  <Button mnemonicParsing="false" onAction="#handleDeconnexion" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
                      <VBox.margin>
                         <Insets top="252.0" />
                      </VBox.margin>

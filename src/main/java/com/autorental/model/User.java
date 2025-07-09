@@ -2,7 +2,8 @@ package com.autorental.model;
 
 import jakarta.persistence.*;
 
-@Entity(name = "users")
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
