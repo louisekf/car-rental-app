@@ -1,12 +1,20 @@
 package com.autorental.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "vehicules")
 public class Vehicule {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String marque;
     private String modele;
     private double tarif;
     private boolean dispo;
     private String immatriculation;
+
+    public Vehicule(){}
 
     public Vehicule(int id, String marque, String modele, double tarif, boolean dispo, String immatriculation) {
         this.id = id;

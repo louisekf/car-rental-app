@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Parametres">
+<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Parametres">
    <children>
       <Pane prefHeight="456.0" prefWidth="543.0">
          <children>
@@ -41,25 +36,25 @@
                      </children></AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <TextField layoutX="20.0" layoutY="43.0" prefHeight="25.0" prefWidth="149.0" />
-                        <TextField layoutX="20.0" layoutY="141.0" />
-                        <TextField layoutX="19.0" layoutY="190.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="nomField" layoutX="20.0" layoutY="43.0" prefHeight="25.0" prefWidth="149.0" />
+                        <TextField fx:id="telField" layoutX="20.0" layoutY="141.0" />
+                        <TextField fx:id="emailField" layoutX="19.0" layoutY="190.0" prefHeight="25.0" prefWidth="300.0" />
                         <Label layoutX="19.0" layoutY="173.0" text="Adresse mail" />
                         <Label layoutX="20.0" layoutY="122.0" text="Telephone" />
                         <Label layoutX="20.0" layoutY="26.0" text="Nom" />
                         <Label layoutX="20.0" layoutY="230.0" text="Adresse" />
-                        <TextField layoutX="20.0" layoutY="247.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="adresseField" layoutX="20.0" layoutY="247.0" prefHeight="25.0" prefWidth="300.0" />
                         <Label layoutX="19.0" layoutY="288.0" text="Ancien mot de passe" />
-                        <TextField layoutX="20.0" layoutY="305.0" prefHeight="25.0" prefWidth="300.0" />
+                        <TextField fx:id="oldPasswordField" layoutX="20.0" layoutY="305.0" prefHeight="25.0" prefWidth="300.0" />
                         <Label layoutX="19.0" layoutY="345.0" text="Nouveau mot de passe" />
-                        <TextField layoutX="20.0" layoutY="362.0" prefHeight="25.0" prefWidth="300.0" />
-                        <Button layoutX="209.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Enregistrer" />
+                        <TextField fx:id="newPasswordField" layoutX="20.0" layoutY="362.0" prefHeight="25.0" prefWidth="300.0" />
+                        <Button fx:id="saveButton" layoutX="209.0" layoutY="405.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="Enregistrer" />
                         <ImageView fitHeight="127.0" fitWidth="123.0" layoutX="190.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/.png" />
                            </image>
                         </ImageView>
-                        <TextField layoutX="20.0" layoutY="90.0" />
+                        <TextField fx:id="prenomField" layoutX="20.0" layoutY="90.0" />
                         <Label layoutX="19.0" layoutY="72.0" text="Prénom" />
                      </children></AnchorPane>
               </items>

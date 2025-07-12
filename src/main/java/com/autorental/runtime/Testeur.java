@@ -6,6 +6,9 @@ import com.autorental.factory.ConcreteFactory;
 import com.autorental.interfaces.HibernateFactory;
 import com.autorental.model.Client;
 import com.autorental.model.User;
+import com.autorental.model.Vehicule;
+
+import java.util.List;
 
 public class Testeur {
 
@@ -41,6 +44,12 @@ public class Testeur {
         hibernateDao.update(entity);
     }
 
+    public static <T> List<T> listerObjects(Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        return hibernateDao.list();
+    }
 
     public static void inscriptionClient(String nom, String prenom, String email, String tel, String adresse) throws DAOException {
         Client client = new Client(nom, prenom, email, tel, adresse);

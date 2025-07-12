@@ -1,10 +1,12 @@
 package com.autorental.controllers;
 
+import com.autorental.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -56,9 +58,16 @@ public class MainAdmin implements Initializable {
         }
     }
 
-    @FXML
     public void handleDeconnexion(ActionEvent actionEvent) {
         try {
+            Session.clear();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Déconnexion");
+            alert.setHeaderText(null);
+            alert.setContentText("Déconnexion réussie !");
+            alert.showAndWait();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Authentification.fxml"));
             Scene loginScene = new Scene(loader.load());
             Stage stage = (Stage) contentPane.getScene().getWindow();

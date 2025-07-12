@@ -2,6 +2,7 @@ package com.autorental.controllers;
 
 import com.autorental.dao.impl.HibernateUserDaoImpl;
 import com.autorental.model.User;
+import com.autorental.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -50,6 +51,7 @@ public class Authentification {
 
         User user = userDao.checkLogin(loginOrEmail, password);
         if (user != null) {
+            Session.setCurrentUser(user);
             String fxmlPath = roleToFxml.get(user.getRole().toUpperCase());
             if (fxmlPath != null) {
                 try {

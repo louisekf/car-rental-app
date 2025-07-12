@@ -1,13 +1,16 @@
 package com.autorental.controllers;
 
+import com.autorental.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,6 +44,8 @@ public class Main implements Initializable {
         loadPage("Parametres.fxml");
     }
 
+    public void loadProfilPage(MouseEvent mouseEvent) { loadPage("Profile.fxml"); }
+
     public void setPageTitle(String title) {
         pageTitleLabel.setText(title);
     }
@@ -54,6 +59,7 @@ public class Main implements Initializable {
                 case "MesReservations.fxml" -> setPageTitle("Mes réservations");
                 case "Formulaire.fxml" -> setPageTitle("Formulaire");
                 case "Parametres.fxml" -> setPageTitle("Paramètres");
+                case "Profile.fxml" -> setPageTitle("Profil");
                 default -> setPageTitle("Page");
             }
         } catch (Exception e) {
@@ -63,6 +69,14 @@ public class Main implements Initializable {
 
     public void handleDeconnexion(ActionEvent actionEvent) {
         try {
+            Session.clear();
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Déconnexion");
+            alert.setHeaderText(null);
+            alert.setContentText("Déconnexion réussie !");
+            alert.showAndWait();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Authentification.fxml"));
             Scene loginScene = new Scene(loader.load());
             Stage stage = (Stage) contentPane.getScene().getWindow();

@@ -31,14 +31,14 @@
                   </Pane>
                   <Pane prefHeight="66.0" prefWidth="585.0">
                      <children>
-                        <ImageView fitHeight="28.0" fitWidth="26.0" layoutX="489.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/.png" />
-                           </image>
-                        </ImageView>
                         <Label fx:id="pageTitleLabel" layoutX="22.0" layoutY="23.0" text="Dashboard">
                            <font>
                               <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="435.0" layoutY="24.0" text="Hello Admin!">
+                           <font>
+                              <Font size="13.0" />
                            </font>
                         </Label>
                      </children>

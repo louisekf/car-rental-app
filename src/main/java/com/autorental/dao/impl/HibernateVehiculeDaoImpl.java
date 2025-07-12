@@ -6,4 +6,5 @@ public class HibernateVehiculeDaoImpl extends HibernateObjectDaoImpl<Vehicule>{
     public HibernateVehiculeDaoImpl() {
         super(Vehicule.class);
     }
+
 }
