@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="522.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Main">
+   <children>
+      <BorderPane prefHeight="522.0" prefWidth="688.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="66.0" prefWidth="688.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="64.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/ilm_cropped.png" />
+                           </image></ImageView>
+                        <Label layoutX="62.0" layoutY="24.0" text="ILM Rental Cars">
+                           <padding>
+                              <Insets top="2.0" />
+                           </padding>
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="66.0" prefWidth="585.0">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="26.0" layoutX="489.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="pageTitleLabel" layoutX="22.0" layoutY="23.0" text="Accueil">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </top>
+
+         <left>
+            <VBox prefHeight="422.0" prefWidth="150.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#loadAccueilPage" prefHeight="39.0" prefWidth="149.0" style="-fx-background-color: white;" text="Accueil">
+                     <VBox.margin>
+                        <Insets top="13.0" />
+                     </VBox.margin></Button>
+                  <Button mnemonicParsing="false" onAction="#loadReservationsPage" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: white;" text="Mes réservations" />
+                  <Button mnemonicParsing="false" onAction="#loadFormulairePage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white;" text="Formulaire" />
+                  <Button mnemonicParsing="false" onAction="#loadSettingsPage" prefHeight="43.0" prefWidth="149.0" style="-fx-background-color: white;" text="Paramètres" />
+                  <Button mnemonicParsing="false" onAction="#handleDeconnexion" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
+                     <VBox.margin>
+                        <Insets top="252.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="8.0" top="5.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+
+         <center>
+            <AnchorPane fx:id="contentPane" prefHeight="456.0" prefWidth="542.0">
+               <children>
+                  <Line endX="437.0" layoutX="101.0" startX="-100.0" stroke="#848484" />
+               </children></AnchorPane>
+         </center>
+      </BorderPane>
+      <Line endX="-1.6666717529296875" endY="-7.833333492279053" layoutX="153.0" startX="-3.0000152587890625" startY="522.0" stroke="#919191" />
+   </children>
+</AnchorPane>

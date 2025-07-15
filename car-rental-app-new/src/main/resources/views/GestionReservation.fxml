@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefWidth="456.0" prefHeight="442.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.autorental.controllers.GestionReservations">
+
+    <children>
+        <BorderPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+
+            <center>
+                <ScrollPane fitToWidth="true" fitToHeight="true" BorderPane.alignment="CENTER" prefHeight="480" prefWidth="680">
+                    <content>
+                        <VBox spacing="10">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+
+                            <TableView fx:id="RentalTable" prefHeight="400.0" prefWidth="660.0" >
+                                <columns>
+                                    <TableColumn fx:id="clientColumn" prefWidth="110.0" text="Client" />
+                                    <TableColumn fx:id="vehiculeColumn" prefWidth="110.0" text="Véhicule" />
+                                    <TableColumn fx:id="chauffeurColumn" prefWidth="110.0" text="Chauffeur" />
+                                    <TableColumn fx:id="dateRetraitColumn" prefWidth="90.0" text="Date Retrait" />
+                                    <TableColumn fx:id="dateRetourColumn" prefWidth="90.0" text="Date Retour" />
+                                    <TableColumn fx:id="statutColumn" prefWidth="90.0" text="Statut" />
+                                </columns>
+                            </TableView>
+
+                            <HBox spacing="10" alignment="CENTER_RIGHT">
+                                <Button text="Changer le statut" onAction="#handleChangerStatut" />
+                            </HBox>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </center>
+
+        </BorderPane>
+    </children>
+</AnchorPane>

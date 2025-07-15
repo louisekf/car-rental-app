@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="542.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.GestionVehicules">
+    <children>
+        <BorderPane style="-fx-background-color: F2F2F2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                 <VBox spacing="5">
+                     <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="522.0" spacing="10">
+                         <Button fx:id="addVehiculeButton" onAction="#loadAjoutVehiculePage" text="Ajouter un véhicule" />
+                     </HBox>
+                     <TableView fx:id="vehiculeTable" prefHeight="330.0" prefWidth="522.0">
+                         <columns>
+                             <TableColumn fx:id="brandColumn" prefWidth="130" text="Marque" />
+                             <TableColumn fx:id="modelColumn" prefWidth="130" text="Modèle" />
+                             <TableColumn fx:id="licensePlateColumn" prefWidth="130" text="Immatriculation" />
+                             <TableColumn fx:id="availabilityColumn" prefWidth="130" text="Disponibilité" />
+                         </columns>
+                     </TableView>
+                     <HBox alignment="BOTTOM_RIGHT" spacing="10">
+                         <Button fx:id="editVehiculeButton" onAction="#loadModifierVehiculePage" prefHeight="25.0" prefWidth="82.0" text="Modifier" />
+                         <Button fx:id="deleteVehiculeButton" text="Supprimer" />
+                         <Button fx:id="backButton" prefHeight="25.0" prefWidth="73.0" text="Retour" />
+                     </HBox>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+                 </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

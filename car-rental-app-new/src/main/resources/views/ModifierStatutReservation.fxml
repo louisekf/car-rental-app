@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.autorental.controllers.ModifierStatutReservationController"
+            prefWidth="400" prefHeight="350">
+
+    <VBox spacing="10">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+
+        <TextField fx:id="clientField" promptText="Client" editable="false" />
+
+
+        <TextField fx:id="vehiculeField" promptText="Véhicule" editable="false" />
+
+
+        <TextField fx:id="chauffeurField" promptText="Chauffeur" />
+
+
+        <DatePicker fx:id="dateRetraitField" promptText="Date Retrait" />
+        <DatePicker fx:id="dateRetourField" promptText="Date Retour" />
+
+
+        <ComboBox fx:id="statutField" promptText="Statut" />
+
+
+        <HBox spacing="10">
+            <Button text="Enregistrer" onAction="#handleSave" />
+            <Button text="Annuler" onAction="#handleCancel" />
+        </HBox>
+    </VBox>
+</AnchorPane>
