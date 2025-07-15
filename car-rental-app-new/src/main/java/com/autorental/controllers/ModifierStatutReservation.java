@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class ModifierStatutReservationController {
+public class ModifierStatutReservation {
 
     @FXML private TextField clientField;
     @FXML private TextField vehiculeField;

@@ -79,7 +79,7 @@ public class GestionReservations {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ModifierStatutReservation.fxml"));
             Parent root = loader.load();
 
-            ModifierStatutReservationController controller = loader.getController();
+            ModifierStatutReservation controller = loader.getController();
             controller.setReservation(selected);
 
             Stage stage = new Stage();
