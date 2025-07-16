@@ -60,7 +60,6 @@ public class Formulaire {
         }
     }
 
-
     private void loadChauffeurs() {
         try {
             List<Chauffeur> chauffeurs = testeur.listerObjects(Chauffeur.class)
