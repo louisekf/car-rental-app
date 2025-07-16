@@ -24,38 +24,46 @@
       </Pane>
       <Pane layoutX="251.0" prefHeight="456.0" prefWidth="286.0">
          <children>
-            <Pane layoutX="27.0" layoutY="75.0" prefHeight="135.0" prefWidth="233.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
+            <Pane layoutX="9.0" layoutY="75.0" prefHeight="135.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
                <children>
-                  <TextField fx:id="pointsField" layoutX="14.0" layoutY="32.0" prefHeight="35.0" prefWidth="134.0" />
-                  <Label layoutX="155.0" layoutY="32.0" text="pts">
+                  <Label fx:id="pointsLabel" layoutX="14.0" layoutY="26.0" prefHeight="46.0" prefWidth="161.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="172.0" layoutY="32.0" text="pts">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Offres" />
-                  <Button layoutX="112.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Convertir" textFill="WHITE" />
+                  <Button fx:id="cadeauBtn" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onCadeauClicked" prefHeight="25.0" prefWidth="77.0" text="Offres" />
+                  <Button fx:id="utiliserBtn" layoutX="95.0" layoutY="78.0" mnemonicParsing="false" onAction="#onUtiliserClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Utiliser" textFill="WHITE" />
                </children></Pane>
-            <Pane layoutX="27.0" layoutY="276.0" prefHeight="135.0" prefWidth="233.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
+            <Pane layoutX="9.0" layoutY="276.0" prefHeight="135.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
                <children>
-                  <TextField fx:id="walletField" layoutX="14.0" layoutY="50.0" prefHeight="35.0" prefWidth="134.0" />
-                  <Label layoutX="156.0" layoutY="50.0" text="FCFA">
+                  <Label fx:id="walletLabel" layoutX="14.0" layoutY="45.0" prefHeight="46.0" prefWidth="161.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="175.0" layoutY="50.0" text="FCFA">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Button layoutX="14.0" layoutY="96.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Déposer" textFill="WHITE" />
+                  <Button fx:id="deposerBtn" layoutX="14.0" layoutY="96.0" mnemonicParsing="false" onAction="#onDeposerClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Déposer" textFill="WHITE" />
                   <Pane layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="161.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: F2F2F2;">
                      <children>
                         <Label layoutX="10.0" layoutY="2.0" text="Powered by OrangeMoney" />
                      </children>
                   </Pane>
                </children></Pane>
-            <Label layoutX="27.0" layoutY="44.0" text="Points de fidélité">
+            <Label layoutX="14.0" layoutY="44.0" text="Points de fidélité">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="240.0" text="Portefeuille">
+            <Label layoutX="14.0" layoutY="240.0" text="Portefeuille">
                <font>
                   <Font size="14.0" />
                </font>

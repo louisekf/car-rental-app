@@ -28,6 +28,8 @@ public class Main implements Initializable {
         loadPage("Accueil.fxml");
     }
 
+    public AnchorPane getContentPane() { return contentPane; }
+
     public void loadAccueilPage() {
         loadPage("Accueil.fxml");
     }
@@ -36,9 +38,7 @@ public class Main implements Initializable {
         loadPage("MesReservations.fxml");
     }
 
-    public void loadFormulairePage() {
-        loadPage("Formulaire.fxml");
-    }
+    public void loadFormulairePage() { loadPage("Formulaire.fxml"); }
 
     public void loadSettingsPage() {
         loadPage("Parametres.fxml");
@@ -52,8 +52,20 @@ public class Main implements Initializable {
 
     private void loadPage(String fxmlFile) {
         try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource("/views/" + fxmlFile));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/" + fxmlFile));
+            AnchorPane pane = loader.load();
+
+            Object controller = loader.getController();
+            if (controller != null) {
+                try {
+                    controller.getClass().getMethod("setMainController", Main.class)
+                            .invoke(controller, this);
+                } catch (NoSuchMethodException ignored) {
+                }
+            }
+
             contentPane.getChildren().setAll(pane);
+
             switch (fxmlFile) {
                 case "Accueil.fxml" -> setPageTitle("Accueil");
                 case "MesReservations.fxml" -> setPageTitle("Mes réservations");
@@ -66,6 +78,7 @@ public class Main implements Initializable {
             e.printStackTrace();
         }
     }
+
 
     public void handleDeconnexion(ActionEvent actionEvent) {
         try {

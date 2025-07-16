@@ -1,6 +1,5 @@
 package com.autorental.controllers;
 
-import com.autorental.db.HibernateConnection;
 import com.autorental.exceptions.DAOException;
 import com.autorental.model.Vehicule;
 import com.autorental.runtime.Testeur;
@@ -12,8 +11,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
 
 import java.net.URL;
 import java.util.List;

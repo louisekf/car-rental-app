@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefWidth="542.0" prefHeight="456.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.GestionReservations">
+<AnchorPane prefHeight="456.0" prefWidth="542.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.GestionReservations">
     <children>
-        <BorderPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
-                <VBox spacing="10" maxHeight="420.0" BorderPane.alignment="CENTER">
+                <VBox maxHeight="420.0" spacing="10" BorderPane.alignment="CENTER">
                     <padding>
-                        <Insets top="10" left="10" right="10" bottom="10" />
+                        <Insets bottom="10" left="10" right="10" top="10" />
                     </padding>
                     <VBox spacing="5">
                         <TableView fx:id="RentalTable" prefHeight="380.0" prefWidth="520.0">
                             <columns>
-                                <TableColumn fx:id="ClientColumn" prefWidth="100" text="Client" />
-                                <TableColumn fx:id="vehiculeColumn" prefWidth="100" text="Vehicule" />
-                                <TableColumn fx:id="DateRetraitColumn" prefWidth="100" text="Date Retrait" />
-                                <TableColumn fx:id="DateRetourColumn" prefWidth="100" text="Date Retour" />
-                                <TableColumn fx:id="StatutColumn" prefWidth="120" text="Statut" />
+                                <TableColumn fx:id="clientColumn" prefWidth="96.33334064483643" text="Client" />
+                                <TableColumn fx:id="vehiculeColumn" prefWidth="97.00000762939453" text="Vehicule" />
+                                <TableColumn fx:id="chauffeurColumn" prefWidth="74.33332824707031" text="Chauffeur" />
+                                <TableColumn fx:id="dateRetraitColumn" prefWidth="88.33334350585938" text="Date Retrait" />
+                                <TableColumn fx:id="dateRetourColumn" minWidth="0.0" prefWidth="85.33334350585938" text="Date Retour" />
+                                <TableColumn fx:id="statutColumn" prefWidth="80.66665649414062" text="Statut" />
                             </columns>
                         </TableView>
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button text="Changer le statut" onAction="#handleChangerStatut" />
+                        </HBox>
                     </VBox>
                 </VBox>
             </center>

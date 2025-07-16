@@ -1,10 +1,21 @@
 package com.autorental.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "factures")
 public class Facture {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String nom;
+
+    @OneToOne
+    @JoinColumn(name = "reservation_id")
     private Reservation reservation;
-    private String reservation1;
+
+    public Facture(){}
 
     public Facture(int id, String nom, Reservation reservation) {
         this.id = id;
@@ -39,13 +50,5 @@ public class Facture {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public String getReservation1() {
-        return reservation1;
-    }
-
-    public void setReservation1(String reservation1) {
-        this.reservation1 = reservation1;
     }
 }

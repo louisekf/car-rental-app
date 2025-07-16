@@ -17,16 +17,15 @@
                     </HBox>
                     <TableView fx:id="vehiculeTable" prefHeight="320.0" prefWidth="522.0">
                         <columns>
-                            <TableColumn fx:id="LastNameColumn" prefWidth="130.0" text="Nom" />
-                            <TableColumn fx:id="FirstNameColumn" prefWidth="130.0" text="Prénom" />
-                            <TableColumn fx:id="PhoneColumn" prefWidth="130.0" text="Téléphone" />
-                            <TableColumn fx:id="availabilityColumn" prefWidth="130.0" text="Disponibilité" />
+                            <TableColumn fx:id="LastNameColumn" prefWidth="162.99998950958252" text="Nom" />
+                            <TableColumn fx:id="FirstNameColumn" prefWidth="208.3333282470703" text="Prénom" />
+                            <TableColumn fx:id="availabilityColumn" prefWidth="148.3333740234375" text="Disponibilité" />
                         </columns>
                     </TableView>
                     <HBox alignment="CENTER_RIGHT" spacing="10">
                         <Button fx:id="editDriverButton" onAction="#loadModifierChauffeurPage" prefHeight="25.0" prefWidth="77.0" text="Modifier" />
-                        <Button fx:id="deleteDriverButton" text="Supprimer" />
-                        <Button fx:id="backButton" prefHeight="25.0" prefWidth="69.0" text="Retour" />
+                        <Button fx:id="deleteDriverButton" onAction="#handleDeleteChauffeur" text="Supprimer" />
+                        <Button fx:id="backButton" onAction="#handleBackButton" prefHeight="25.0" prefWidth="69.0" text="Retour" />
                     </HBox>
                 </VBox>
             </center>

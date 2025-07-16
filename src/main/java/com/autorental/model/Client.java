@@ -43,7 +43,6 @@ public class Client {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -51,7 +50,6 @@ public class Client {
     public String getNom() {
         return nom;
     }
-
     public void setNom(String nom) {
         this.nom = nom;
     }
@@ -59,7 +57,6 @@ public class Client {
     public String getPrenom() {
         return prenom;
     }
-
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -67,7 +64,6 @@ public class Client {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -75,7 +71,6 @@ public class Client {
     public String getTel() {
         return tel;
     }
-
     public void setTel(String tel) {
         this.tel = tel;
     }
@@ -83,7 +78,6 @@ public class Client {
     public String getAdresse() {
         return adresse;
     }
-
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
@@ -91,12 +85,15 @@ public class Client {
     public int getPts_fidelite() {
         return pts_fidelite;
     }
-
     public void setPts_fidelite(int pts_fidelite) {
         this.pts_fidelite = pts_fidelite;
     }
 
     public double getSolde() { return solde; }
-
     public void setSolde(double solde) { this.solde = solde; }
+
+    @Override
+    public String toString() {
+        return prenom + " " + nom;
+    }
 }

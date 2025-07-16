@@ -36,7 +36,6 @@ public class Vehicule {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -44,7 +43,6 @@ public class Vehicule {
     public String getMarque() {
         return marque;
     }
-
     public void setMarque(String marque) {
         this.marque = marque;
     }
@@ -52,7 +50,6 @@ public class Vehicule {
     public String getModele() {
         return modele;
     }
-
     public void setModele(String modele) {
         this.modele = modele;
     }
@@ -60,7 +57,6 @@ public class Vehicule {
     public boolean isDispo() {
         return dispo;
     }
-
     public void setDispo(boolean dispo) {
         this.dispo = dispo;
     }
@@ -68,7 +64,6 @@ public class Vehicule {
     public String getImmatriculation() {
         return immatriculation;
     }
-
     public void setImmatriculation(String immatriculation) {
         this.immatriculation = immatriculation;
     }
@@ -76,9 +71,12 @@ public class Vehicule {
     public double getTarif() {
         return tarif;
     }
-
     public void setTarif(double tarif) {
         this.tarif = tarif;
     }
 
+    @Override
+    public String toString() {
+        return marque + " " + modele;
+    }
 }

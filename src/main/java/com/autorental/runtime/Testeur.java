@@ -5,6 +5,7 @@ import com.autorental.exceptions.DAOException;
 import com.autorental.factory.ConcreteFactory;
 import com.autorental.interfaces.HibernateFactory;
 import com.autorental.model.Client;
+import com.autorental.model.Reservation;
 import com.autorental.model.User;
 import com.autorental.model.Vehicule;
 
@@ -60,5 +61,4 @@ public class Testeur {
         User user = new User(prenom, nom, role, login, password);
         ajouterObject(user, User.class);
     }
-
 }
