@@ -83,6 +83,7 @@ public class Profile implements Initializable {
         Client client = clientDao.getClientByUserLogin(login);
         if (client != null) {
             walletLabel.setText(String.valueOf(client.getSolde()));
+            pointsLabel.setText(String.valueOf(client.getPts_fidelite()));
         }
     }
 
@@ -106,6 +107,21 @@ public class Profile implements Initializable {
     }
 
     public void onUtiliserClicked(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Convertir.fxml"));
+            Scene scene = new Scene(loader.load());
 
+            Convertir controller = loader.getController();
+            controller.setProfileController(this);
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Convertir vos points");
+            popupStage.setScene(scene);
+            popupStage.setResizable(false);
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

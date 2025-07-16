@@ -37,7 +37,7 @@
                      </font>
                   </Label>
                   <Button fx:id="cadeauBtn" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onCadeauClicked" prefHeight="25.0" prefWidth="77.0" text="Offres" />
-                  <Button fx:id="utiliserBtn" layoutX="95.0" layoutY="78.0" mnemonicParsing="false" onAction="#onUtiliserClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Utiliser" textFill="WHITE" />
+                  <Button fx:id="utiliserBtn" layoutX="95.0" layoutY="78.0" mnemonicParsing="false" onAction="#onUtiliserClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Convertir" textFill="WHITE" />
                </children></Pane>
             <Pane layoutX="9.0" layoutY="276.0" prefHeight="135.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
                <children>
