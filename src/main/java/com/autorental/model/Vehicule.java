@@ -81,4 +81,7 @@ public class Vehicule {
         this.tarif = tarif;
     }
 
+    public String getNomVehicule(){
+        return this.getMarque()+" "+this.getModele();
+    }
 }

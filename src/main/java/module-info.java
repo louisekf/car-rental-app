@@ -14,4 +14,5 @@ module com.example.locationvoituresapp {
     opens com.autorental.model to javafx.base, org.hibernate.orm.core;
     exports com.autorental.runtime;
     opens com.autorental.utils to org.hibernate.orm.core;
+    opens com.autorental.dao to javafx.fxml;
 }

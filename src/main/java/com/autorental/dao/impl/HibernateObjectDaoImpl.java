@@ -5,6 +5,7 @@ import com.autorental.db.HibernateConnection;
 import com.autorental.exceptions.DAOException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -71,6 +72,18 @@ public class HibernateObjectDaoImpl<T> implements IDao<T> {
                 session.remove(entity);
             }
             transaction.commit();
+        } catch (Exception e) {
+            throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
+        }
+    }
+
+
+    public int count() throws DAOException {
+        try (Session session = HibernateConnection.getInstance().openSession()) {
+            Query<Long> query = session.createQuery(
+                    "SELECT COUNT(e) FROM " + type.getSimpleName() + " e", Long.class
+            );
+            return query.getSingleResult().intValue();
         } catch (Exception e) {
             throw new DAOException("ERROR : " + e.getClass() + ":" + e.getMessage());
         }
