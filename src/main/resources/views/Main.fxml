@@ -41,7 +41,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="notifBtn" fitHeight="24.0" fitWidth="23.0" layoutX="445.0" layoutY="22.0" onMouseClicked="#loadNotifPage" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="notifBtn" fitHeight="19.0" fitWidth="17.0" layoutX="462.0" layoutY="25.0" onMouseClicked="#loadNotifPage" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/notif.png" />
                            </image>
@@ -75,7 +75,7 @@
          </left>
 
          <center>
-            <AnchorPane fx:id="contentPane" prefHeight="456.0" prefWidth="542.0">
+            <AnchorPane fx:id="contentPane" prefHeight="456.0" prefWidth="642.0">
                <children>
                   <Line endX="437.0" layoutX="101.0" startX="-100.0" stroke="#848484" />
                </children></AnchorPane>

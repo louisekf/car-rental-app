@@ -15,7 +15,22 @@ public class Facture {
     @JoinColumn(name = "reservation_id")
     private Reservation reservation;
 
+    private double montant;
+
     public Facture(){}
+
+    public Facture(int id, String nom, Reservation reservation, double montant) {
+        this.id = id;
+        this.nom = nom;
+        this.reservation = reservation;
+        this.montant = montant;
+    }
+
+    public Facture(String nom, Reservation reservation, double montant) {
+        this.nom = nom;
+        this.reservation = reservation;
+        this.montant = montant;
+    }
 
     public Facture(int id, String nom, Reservation reservation) {
         this.id = id;
@@ -51,4 +66,8 @@ public class Facture {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    public double getMontant() { return montant; }
+
+    public void setMontant(double montant) { this.montant = montant; }
 }

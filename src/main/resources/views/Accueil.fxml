@@ -7,32 +7,32 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Accueil">
+<AnchorPane prefHeight="456.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Accueil">
    <children>
       <ScrollPane>
          <content>
-            <Pane prefHeight="456.0" prefWidth="537.0">
+            <Pane prefHeight="456.0" prefWidth="640.0">
                <children>
-                  <TableView fx:id="vehicules" layoutX="21.0" layoutY="288.0" prefHeight="167.0" prefWidth="486.0">
+                  <TableView fx:id="vehicules" layoutX="21.0" layoutY="288.0" prefHeight="223.0" prefWidth="586.0">
                     <columns>
-                      <TableColumn fx:id="colMarque" prefWidth="58.66669464111328" text="Marque" />
-                        <TableColumn fx:id="colModele" prefWidth="104.00000762939453" text="Modèle" />
-                        <TableColumn fx:id="colTarif" prefWidth="93.99998474121094" text="Tarif" />
-                        <TableColumn fx:id="colDispo" prefWidth="105.0" text="Disponibilité" />
-                        <TableColumn fx:id="colImmat" prefWidth="118.33331298828125" text="Immatriculation" />
+                      <TableColumn fx:id="colMarque" prefWidth="117.66666221618652" text="Marque" />
+                        <TableColumn fx:id="colModele" prefWidth="132.33331298828125" text="Modèle" />
+                        <TableColumn fx:id="colTarif" prefWidth="94.66668701171875" text="Tarif" />
+                        <TableColumn fx:id="colDispo" prefWidth="105.66668701171875" text="Disponibilité" />
+                        <TableColumn fx:id="colImmat" prefWidth="138.00003051757812" text="Immatriculation" />
                     </columns>
                   </TableView>
                   <Label layoutX="21.0" layoutY="257.0" text="Voitures disponibles">
                      <font>
                         <Font size="14.0" />
                      </font></Label>
-                  <ComboBox layoutX="357.0" layoutY="255.0" prefWidth="150.0" promptText="Filtrer par..." />
-                  <ImageView fitHeight="256.0" fitWidth="528.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                  <ComboBox layoutX="457.0" layoutY="255.0" prefWidth="150.0" promptText="Filtrer par..." />
+                  <ImageView fitHeight="239.0" fitWidth="630.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../assets/cars_cropped.jpg" />
+                        <Image url="@../assets/red.jpg" />
                      </image>
                   </ImageView>
-                  <Rectangle height="248.0" layoutX="-4.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="529.0">
+                  <Rectangle height="239.0" layoutX="-4.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="632.0">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -50,9 +50,23 @@
                         </LinearGradient>
                      </fill>
                   </Rectangle>
-                  <Label layoutX="105.0" layoutY="108.0" text="Bienvenue sur ILM Rental Cars" textFill="WHITE">
+                  <Label layoutX="43.0" layoutY="89.0" text="Bienvenue sur ILM Rental Cars" textFill="WHITE">
                      <font>
                         <Font name="Britannic Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="44.0" layoutY="120.0" text="Que ce soit pour un voyage d'affaires, une escapade en famille ou une virée" textFill="#e4e4e4">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <Label layoutX="43.0" layoutY="137.0" text="entre amis, nous vous proposons une large gamme de véhicules" textFill="#e4e4e4">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="44.0" layoutY="154.0" text="confortables, fiables et au meilleur prix !" textFill="#e4e4e4">
+                     <font>
+                        <Font size="10.0" />
                      </font>
                   </Label>
                </children>

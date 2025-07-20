@@ -52,6 +52,13 @@ public class Testeur {
         return hibernateDao.list();
     }
 
+    public static <T> int countObjects(Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        return hibernateDao.count();
+    }
+
     public static void inscriptionClient(String nom, String prenom, String email, String tel, String adresse) throws DAOException {
         Client client = new Client(nom, prenom, email, tel, adresse);
         ajouterObject(client, Client.class);
@@ -60,5 +67,10 @@ public class Testeur {
     public static void inscriptionUser(String prenom, String nom, String role, String login, String password) throws DAOException {
         User user = new User(prenom, nom, role, login, password);
         ajouterObject(user, User.class);
+    }
+
+    public static void ajouterVehicule(String marque, String modele, double tarif, boolean dispo, String immatriculation) throws DAOException{
+        Vehicule vehicule = new Vehicule(marque, modele, tarif, dispo, immatriculation);
+        ajouterObject(vehicule, Vehicule.class);
     }
 }

@@ -153,7 +153,7 @@ public class FactureClient {
                 testeur.ajouterObject(notif, Notification.class);
             }
 
-            Facture facture = new Facture("Facture de " + client.getNom(), reservation);
+            Facture facture = new Facture("Facture de " + client.getNom(), reservation, montantFinal);
             testeur.ajouterObject(facture, Facture.class);
 
             showAlert("Succès", "Paiement réussie !");
