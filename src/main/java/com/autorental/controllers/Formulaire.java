@@ -9,6 +9,8 @@ import com.autorental.utils.Session;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.Callback;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -39,6 +41,30 @@ public class Formulaire {
         loadVehicules();
         loadChauffeurs();
         setupTypeReservationLogic();
+        dateCheck();
+    }
+
+    private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
+        return datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setDisable(empty || item.isBefore(minDate));
+            }
+        };
+    }
+
+    private void dateCheck(){
+        LocalDate today = LocalDate.now();
+        dateRetraitPicker.setDayCellFactory(getDayCellFactory(today));
+        dateRetourPicker.setDayCellFactory(getDayCellFactory(today));
+
+        dateRetraitPicker.valueProperty().addListener((obs, oldDate, newDate) -> {
+            if (newDate != null) {
+                dateRetourPicker.setDayCellFactory(getDayCellFactory(newDate));
+            }
+        });
+
     }
 
     private void selectTypeReservation() {

@@ -13,7 +13,7 @@
          <content>
             <Pane prefHeight="456.0" prefWidth="640.0">
                <children>
-                  <TableView fx:id="vehicules" layoutX="21.0" layoutY="288.0" prefHeight="223.0" prefWidth="586.0">
+                  <TableView fx:id="vehicules" layoutX="21.0" layoutY="288.0" prefHeight="163.0" prefWidth="586.0">
                     <columns>
                       <TableColumn fx:id="colMarque" prefWidth="117.66666221618652" text="Marque" />
                         <TableColumn fx:id="colModele" prefWidth="132.33331298828125" text="Modèle" />
