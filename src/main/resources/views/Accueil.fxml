@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Accueil">
+   <children>
+      <ScrollPane>
+         <content>
+            <Pane prefHeight="456.0" prefWidth="537.0">
+               <children>
+                  <TableView fx:id="vehicules" layoutX="21.0" layoutY="288.0" prefHeight="167.0" prefWidth="486.0">
+                    <columns>
+                      <TableColumn fx:id="colMarque" prefWidth="58.66669464111328" text="Marque" />
+                        <TableColumn fx:id="colModele" prefWidth="104.00000762939453" text="Modèle" />
+                        <TableColumn fx:id="colTarif" prefWidth="93.99998474121094" text="Tarif" />
+                        <TableColumn fx:id="colDispo" prefWidth="105.0" text="Disponibilité" />
+                        <TableColumn fx:id="colImmat" prefWidth="118.33331298828125" text="Immatriculation" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="21.0" layoutY="257.0" text="Voitures disponibles">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <ComboBox layoutX="357.0" layoutY="255.0" prefWidth="150.0" promptText="Filtrer par..." />
+                  <ImageView fitHeight="256.0" fitWidth="528.0" layoutX="-2.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/cars_cropped.jpg" />
+                     </image>
+                  </ImageView>
+                  <Rectangle height="248.0" layoutX="-4.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="529.0">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color opacity="0.6131805181503296" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color opacity="0.49283668398857117" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Label layoutX="105.0" layoutY="108.0" text="Bienvenue sur ILM Rental Cars" textFill="WHITE">
+                     <font>
+                        <Font name="Britannic Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

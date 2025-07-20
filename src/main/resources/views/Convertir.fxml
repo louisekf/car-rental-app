@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="216.0" prefWidth="275.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Convertir">
+    <children>
+      <VBox layoutX="20.0" layoutY="20.0" prefHeight="180.0" prefWidth="242.0" spacing="19.0">
+         <children>
+              <Label fx:id="lblAvailablePoints" text="Points disponibles :" />
+              <Label text="Taux: 1 point = 100 FCFA" />
+              <TextField fx:id="txtPointsToConvert" prefHeight="25.0" prefWidth="196.0" promptText="Nombre de points à convertir" />
+              <Button onAction="#handleConvertir" text="Convertir" />
+              <Label fx:id="lblResult" />
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
