@@ -46,7 +46,7 @@
                             </TableView>
                         </VBox>
                         <VBox spacing="5">
-                            <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="622.0" spacing="8">
+                            <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="622.0" spacing="8">
                                 <Label prefHeight="17.0" prefWidth="97.0" text="Revenus par mois">
                            <HBox.margin>
                               <Insets left="339.0" />

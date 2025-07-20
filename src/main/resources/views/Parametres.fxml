@@ -10,8 +10,8 @@
       <Pane prefHeight="456.0" prefWidth="543.0">
          <children>
             <SplitPane dividerPositions="0.29797979797979796" layoutX="2.0" layoutY="-2.0" prefHeight="463.0" prefWidth="543.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="123.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="230.0" prefWidth="123.0">
                      <children>
                         <Label layoutX="21.0" layoutY="61.0" text="Profil">
                            <font>
@@ -34,7 +34,7 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
                         <TextField fx:id="nomField" layoutX="20.0" layoutY="43.0" prefHeight="25.0" prefWidth="149.0" />
                         <TextField fx:id="telField" layoutX="20.0" layoutY="141.0" />
@@ -57,7 +57,7 @@
                         <TextField fx:id="prenomField" layoutX="20.0" layoutY="90.0" />
                         <Label layoutX="19.0" layoutY="72.0" text="Prénom" />
                      </children></AnchorPane>
-              </items>
+               </items>
             </SplitPane>
          </children>
       </Pane>
