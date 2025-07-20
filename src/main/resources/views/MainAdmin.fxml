@@ -36,11 +36,16 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="435.0" layoutY="24.0" text="Hello Admin!">
+                        <Label layoutX="403.0" layoutY="23.0" text="Hello Admin!">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
+                        <ImageView fx:id="notifBtn" fitHeight="22.0" fitWidth="30.0" layoutX="490.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#onNotifClicked">
+                           <image>
+                              <Image url="@../assets/notif.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                </children>

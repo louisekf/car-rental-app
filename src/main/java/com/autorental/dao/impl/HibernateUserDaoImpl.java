@@ -1,6 +1,7 @@
 package com.autorental.dao.impl;
 
 import com.autorental.db.HibernateConnection;
+import com.autorental.model.Client;
 import com.autorental.model.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -10,7 +11,6 @@ public class HibernateUserDaoImpl extends HibernateObjectDaoImpl<User>{
         super(User.class);
     }
 
-    //Quand vous créer une opération, mettez openSession() au lieu de getSession
     public boolean loginExists(String login) {
         try (Session session = HibernateConnection.getInstance().openSession()) {
             Long count = session.createQuery(
@@ -38,5 +38,12 @@ public class HibernateUserDaoImpl extends HibernateObjectDaoImpl<User>{
         }
     }
 
+    public User getUserByClientEmail(String email) {
+        try (Session session = HibernateConnection.getInstance().openSession()) {
+            return session.createQuery("FROM User WHERE login = :email", User.class)
+                    .setParameter("email", email)
+                    .uniqueResult();
+        }
+    }
 
 }

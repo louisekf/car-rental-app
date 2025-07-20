@@ -87,7 +87,6 @@ public class GestionReservations {
             showAlert("Veuillez sélectionner une réservation.");
             return;
         }
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ModifierStatutReservation.fxml"));
             Parent root = loader.load();

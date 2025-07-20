@@ -1,7 +1,12 @@
 package com.autorental.controllers;
 
+import com.autorental.dao.impl.HibernateClientDaoImpl;
 import com.autorental.dao.impl.HibernateReservationDaoImpl;
+import com.autorental.dao.impl.HibernateUserDaoImpl;
+import com.autorental.model.Client;
+import com.autorental.model.Notification;
 import com.autorental.model.Reservation;
+import com.autorental.model.User;
 import com.autorental.runtime.Testeur;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -26,7 +31,9 @@ public class ModifierStatutReservation {
 
 
     private Reservation reservation;
-    Testeur testeur = new Testeur();
+    private User user;
+    private final Testeur testeur = new Testeur();
+    HibernateUserDaoImpl userDao = new HibernateUserDaoImpl();
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
@@ -38,10 +45,9 @@ public class ModifierStatutReservation {
             dateRetraitField.setValue(new Date(reservation.getDate_retrait().getTime()).toLocalDate());
         if (reservation.getDate_retour() != null)
             dateRetourField.setValue(new Date(reservation.getDate_retour().getTime()).toLocalDate());
-        statutField.getItems().setAll("En cours", "Terminée", "Enregistrée");
+        statutField.getItems().setAll("Validée", "Rejetée", "En cours", "Terminée");
         statutField.setValue(reservation.getStatut());
 
-        // Désactivation des champs sauf statut
         chauffeurField.setDisable(true);
         clientField.setDisable(true);
         vehiculeField.setDisable(true);
@@ -57,6 +63,38 @@ public class ModifierStatutReservation {
             reservation.setStatut(nouveauStatut);
             try {
                 testeur.updateObject(reservation, Reservation.class);
+
+                String emailClient = reservation.getClient().getEmail();
+                user = userDao.getUserByClientEmail(emailClient);
+
+                //Notifier le client
+                if (user!= null) {
+                    int userId = user.getId();
+
+                    if (nouveauStatut.equals("Validée")) {
+                        String notifMessage = "Votre réservation a été validée! Veuillez procéder au paiement.";
+                        Notification notif = new Notification(notifMessage, userId);
+                        testeur.ajouterObject(notif, Notification.class);
+                    }
+
+                    if (nouveauStatut.equals("Rejetée")) {
+                        String notifMessage = "Votre réservation a été rejetée faute de disponibilité du véhicule.";
+                        Notification notif = new Notification(notifMessage, userId);
+                        testeur.ajouterObject(notif, Notification.class);
+                    }
+
+                    if (nouveauStatut.equals("En cours")) {
+                        String notifMessage = "Votre réservation est maintenant en cours.";
+                        Notification notif = new Notification(notifMessage, userId);
+                        testeur.ajouterObject(notif, Notification.class);
+                    }
+
+                    if (nouveauStatut.equals("Terminée")) {
+                        String notifMessage = "Votre réservation est terminée. Merci de ramener le véhicule.";
+                        Notification notif = new Notification(notifMessage, userId);
+                        testeur.ajouterObject(notif, Notification.class);
+                    }
+                }
                 showAlert("Succès", "Statut mis à jour !");
             } catch (Exception e) {
                 showAlert("Erreur", "Impossible de mettre à jour : " + e.getMessage());

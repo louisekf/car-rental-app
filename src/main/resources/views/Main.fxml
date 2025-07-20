@@ -31,7 +31,7 @@
                   </Pane>
                   <Pane prefHeight="66.0" prefWidth="585.0">
                      <children>
-                        <ImageView fx:id="profileImage" fitHeight="28.0" fitWidth="26.0" layoutX="489.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#loadProfilPage">
+                        <ImageView fx:id="profileImage" fitHeight="28.0" fitWidth="26.0" layoutX="489.0" layoutY="20.0" onMouseClicked="#loadProfilPage" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../assets/.png" />
                            </image>
@@ -41,6 +41,11 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Label>
+                        <ImageView fx:id="notifBtn" fitHeight="24.0" fitWidth="23.0" layoutX="445.0" layoutY="22.0" onMouseClicked="#loadNotifPage" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/notif.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                </children>

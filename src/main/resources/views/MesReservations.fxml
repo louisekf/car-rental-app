@@ -10,7 +10,7 @@
          <content>
             <Pane prefHeight="456.0" prefWidth="537.0">
                <children>
-                  <TableView fx:id="reservations" layoutX="21.0" layoutY="97.0" prefHeight="330.0" prefWidth="478.0">
+                  <TableView fx:id="reservations" layoutX="21.0" layoutY="97.0" prefHeight="296.0" prefWidth="478.0">
                     <columns>
                       <TableColumn fx:id="colId" prefWidth="38.33334732055664" text="id" />
                       <TableColumn fx:id="colVehicule" prefWidth="84.99999237060547" text="Véhicule " />
@@ -26,6 +26,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Label>
+                  <Button fx:id="payerBtn" layoutX="425.0" layoutY="405.0" mnemonicParsing="false" onAction="#onPayerClicked" prefHeight="25.0" prefWidth="74.0" text="Payer" />
                </children>
             </Pane>
          </content>
