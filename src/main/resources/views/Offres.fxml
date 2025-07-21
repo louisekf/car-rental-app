@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Offres">
+   <children>
+      <Label layoutX="231.0" layoutY="200.0" text="POUR VOUS :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Line endX="11.0" endY="-61.33332824707031" layoutX="257.0" layoutY="297.0" startX="11.0" startY="72.66665649414062" />
+      <Label layoutX="98.0" layoutY="234.0" text="50 points">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="95.0" layoutY="272.0" text="DE BONUS FIDELITE" />
+      <Pane layoutX="23.0" layoutY="42.0" prefHeight="141.0" prefWidth="490.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="156.0" layoutY="14.0" text="Comment ca marche ?">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="52.0" text="1 - Effectuer vos réservations sur notre plateforme pour gagner des points de fidélité" />
+            <Label layoutX="56.0" layoutY="76.0" text="2 - Accumuler vos points pour pouvoir bénéfier jusqu'à 100% de remise" />
+            <Label layoutX="127.0" layoutY="99.0" text="3 - Décider de convertir vos points en argent" />
+         </children>
+      </Pane>
+      <Button fx:id="btnOne" layoutX="64.0" layoutY="303.0" mnemonicParsing="false" onAction="#onBtnClicked" prefHeight="25.0" prefWidth="167.0" text="-50% A LA RESERVATION" />
+      <Button fx:id="btnDeux" layoutX="309.0" layoutY="303.0" mnemonicParsing="false" onAction="#onBtnClicked" prefHeight="25.0" prefWidth="167.0" text="100 PTS DE FIDELITE" />
+      <Label layoutX="360.0" layoutY="234.0" text="100% ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="296.0" layoutY="272.0" text="DE REMISE SUR VOS RESERVATIONS" />
+   </children>
+</AnchorPane>

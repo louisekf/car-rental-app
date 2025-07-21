@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="537.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.MesReservations">
+   <children>
+      <Pane prefHeight="456.0" prefWidth="642.0">
+         <children>
+            <TableView fx:id="reservations" layoutX="21.0" layoutY="97.0" prefHeight="296.0" prefWidth="600.0">
+              <columns>
+                <TableColumn fx:id="colId" prefWidth="28.666688919067383" text="id" />
+                <TableColumn fx:id="colVehicule" prefWidth="175.33334350585938" text="Véhicule " />
+                <TableColumn fx:id="colDate_retrait" prefWidth="101.33331298828125" text="Date de retrait" />
+                <TableColumn fx:id="colDate_rtr" prefWidth="97.33331298828125" text="Date de retour" />
+                <TableColumn fx:id="colChauffeur" minWidth="0.0" prefWidth="122.66668701171875" text="Chauffeur" />
+                <TableColumn fx:id="colStatut" prefWidth="75.0" text="Statut" />
+              </columns>
+            </TableView>
+            <TextField fx:id="idField" layoutX="348.0" layoutY="41.0" prefHeight="25.0" prefWidth="197.0" promptText="Rechercher ici..." />
+            <Button fx:id="rechercherBtn" layoutX="545.0" layoutY="41.0" mnemonicParsing="false" onAction="#onRechercherClicked" prefHeight="25.0" prefWidth="76.0" text="Rechercher" />
+            <Label layoutX="21.0" layoutY="22.0" text="Mes réservations">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="payerBtn" layoutX="547.0" layoutY="407.0" mnemonicParsing="false" onAction="#onPayerClicked" prefHeight="25.0" prefWidth="74.0" text="Payer" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

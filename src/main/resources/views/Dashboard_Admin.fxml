@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="642.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.DashboardAdmin">
+    <children>
+        <BorderPane prefHeight="456.0" prefWidth="642.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <VBox maxHeight="480.0" spacing="10" style="-fx-background-color: F2F2F2;" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                    <HBox centerShape="false" prefHeight="135.0" prefWidth="622.0" spacing="5">
+                        <VBox alignment="CENTER" prefHeight="49.0" prefWidth="150.0" spacing="3" style="-fx-border-color: #cccccc; -fx-padding: 5; -fx-background-radius: 15; -fx-border-radius: 9; -fx-background-color: white;">
+                            <Label text="Clients" />
+                            <Label fx:id="lblClients" style="-fx-font-size: 12px; -fx-font-weight: bold;" text="" />
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="49.0" prefWidth="150.0" spacing="3" style="-fx-border-color: #cccccc; -fx-padding: 5; -fx-background-radius: 15; -fx-border-radius: 9; -fx-background-color: white;">
+                            <Label text="Réservations" />
+                            <Label fx:id="lblReservations" style="-fx-font-size: 12px; -fx-font-weight: bold;" text="" />
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="49.0" prefWidth="146.0" spacing="3" style="-fx-border-color: #cccccc; -fx-padding: 5; -fx-background-radius: 15; -fx-border-radius: 9; -fx-background-color: white;">
+                            <Label text="Chauffeurs" />
+                            <Label fx:id="lblChauffeurs" style="-fx-font-size: 12px; -fx-font-weight: bold;" text="" />
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="159.0" spacing="3" style="-fx-border-color: #cccccc; -fx-padding: 5; -fx-background-radius: 15; -fx-border-radius: 9; -fx-background-color: white;">
+                            <Label text="Véhicules" />
+                            <Label fx:id="lblVehicules" style="-fx-font-size: 12px; -fx-font-weight: bold;" text="" />
+                        </VBox>
+                    </HBox>
+                    <Label text="Dernières réservations" />
+                    <VBox spacing="10" VBox.vgrow="ALWAYS">
+                        <VBox spacing="5">
+                            <TableView fx:id="tableReservations" prefHeight="169.0" prefWidth="622.0">
+                                <columns>
+                                    <TableColumn fx:id="clientColumn" prefWidth="220" text="Client" />
+                                    <TableColumn fx:id="vehiculeColumn" prefWidth="161.99999237060547" text="Véhicule" />
+                                    <TableColumn fx:id="chauffeurColumn" prefWidth="161.99999237060547" text="Chauffeur" />
+                                    <TableColumn fx:id="dateRetraitColumn" prefWidth="176.6667022705078" text="Date retrait" />
+                                    <TableColumn fx:id="dateRetourColumn" prefWidth="176.6667022705078" text="Date Retour" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="122.66665649414062" text="Statut" />
+                                </columns>
+                            </TableView>
+                        </VBox>
+                        <VBox spacing="5">
+                            <HBox alignment="CENTER_LEFT" prefHeight="82.0" prefWidth="622.0" spacing="8">
+                                <Label prefHeight="17.0" prefWidth="97.0" text="Revenus par mois">
+                                    <HBox.margin>
+                                        <Insets left="416.0" />
+                                    </HBox.margin></Label>
+                                <ComboBox fx:id="comboBoxMois" prefWidth="100">
+                                    <items>
+                                    </items>
+                                </ComboBox>
+                            </HBox>
+                            <LineChart fx:id="chartRevenus" prefHeight="189.0" prefWidth="547.0" title="Revenus">
+                                <xAxis>
+                                    <CategoryAxis label="Mois" prefWidth="544.0" fx:id="xAxis" />
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis fx:id="yAxis" label="Montant" />
+                                </yAxis>
+                            </LineChart>
+                        </VBox>
+                    </VBox>
+               <BorderPane.margin>
+                  <Insets left="-1.0" />
+               </BorderPane.margin>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

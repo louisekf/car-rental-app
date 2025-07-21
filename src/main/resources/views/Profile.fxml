@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="456.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.autorental.controllers.Profile">
+   <children>
+      <Pane prefHeight="456.0" prefWidth="287.0">
+         <children>
+            <ImageView fitHeight="95.0" fitWidth="94.0" layoutX="97.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nomField" layoutX="51.0" layoutY="168.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="prenomField" layoutX="51.0" layoutY="206.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="emailField" layoutX="51.0" layoutY="247.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="telField" layoutX="50.0" layoutY="288.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="adresseField" layoutX="51.0" layoutY="327.0" prefHeight="25.0" prefWidth="186.0" />
+            <PasswordField fx:id="passwordField" layoutX="51.0" layoutY="364.0" prefHeight="25.0" prefWidth="186.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="292.0" prefHeight="456.0" prefWidth="351.0">
+         <children>
+            <Pane layoutX="49.0" layoutY="75.0" prefHeight="135.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
+               <children>
+                  <Label fx:id="pointsLabel" layoutX="14.0" layoutY="26.0" prefHeight="46.0" prefWidth="161.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="172.0" layoutY="32.0" text="pts">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="cadeauBtn" layoutX="14.0" layoutY="78.0" mnemonicParsing="false" onAction="#onCadeauClicked" prefHeight="25.0" prefWidth="77.0" text="Offres" />
+                  <Button fx:id="utiliserBtn" layoutX="95.0" layoutY="78.0" mnemonicParsing="false" onAction="#onUtiliserClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Convertir" textFill="WHITE" />
+               </children></Pane>
+            <Pane layoutX="49.0" layoutY="276.0" prefHeight="135.0" prefWidth="251.0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-radius: 9;">
+               <children>
+                  <Label fx:id="walletLabel" layoutX="14.0" layoutY="45.0" prefHeight="46.0" prefWidth="161.0" text="0">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="175.0" layoutY="50.0" text="FCFA">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="deposerBtn" layoutX="14.0" layoutY="96.0" mnemonicParsing="false" onAction="#onDeposerClicked" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: black;" text="Déposer" textFill="WHITE" />
+                  <Pane layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="161.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: F2F2F2;">
+                     <children>
+                        <Label layoutX="10.0" layoutY="2.0" text="Powered by OrangeMoney" />
+                     </children>
+                  </Pane>
+               </children></Pane>
+            <Label layoutX="54.0" layoutY="44.0" text="Points de fidélité">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="54.0" layoutY="240.0" text="Portefeuille">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,76 @@
+package com.autorental.runtime;
+
+import com.autorental.dao.impl.HibernateObjectDaoImpl;
+import com.autorental.exceptions.DAOException;
+import com.autorental.factory.ConcreteFactory;
+import com.autorental.interfaces.HibernateFactory;
+import com.autorental.model.Client;
+import com.autorental.model.Reservation;
+import com.autorental.model.User;
+import com.autorental.model.Vehicule;
+
+import java.util.List;
+
+public class Testeur {
+
+    public Testeur(){
+
+    }
+
+    public static <T> void ajouterObject(T entity, Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        hibernateDao.create(entity);
+    }
+
+    public static <T> void deleteObject(int objectId, Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        hibernateDao.delete(objectId);
+    }
+
+    public static <T> T rechercherObject(int objectId, Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        return hibernateDao.read(objectId);
+    }
+
+    public static <T> void updateObject(T entity, Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        hibernateDao.update(entity);
+    }
+
+    public static <T> List<T> listerObjects(Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        return hibernateDao.list();
+    }
+
+    public static <T> int countObjects(Class<T> entityClass) throws DAOException {
+        HibernateObjectDaoImpl<T> hibernateDao = ConcreteFactory
+                .getFactory(HibernateFactory.class)
+                .getHibernateObjectDaoImpl(entityClass);
+        return hibernateDao.count();
+    }
+
+    public static void inscriptionClient(String nom, String prenom, String email, String tel, String adresse) throws DAOException {
+        Client client = new Client(nom, prenom, email, tel, adresse);
+        ajouterObject(client, Client.class);
+    }
+
+    public static void inscriptionUser(String prenom, String nom, String role, String login, String password) throws DAOException {
+        User user = new User(prenom, nom, role, login, password);
+        ajouterObject(user, User.class);
+    }
+
+    public static void ajouterVehicule(String marque, String modele, double tarif, boolean dispo, String immatriculation) throws DAOException{
+        Vehicule vehicule = new Vehicule(marque, modele, tarif, dispo, immatriculation);
+        ajouterObject(vehicule, Vehicule.class);
+    }
+}
