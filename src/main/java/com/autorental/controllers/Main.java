@@ -46,6 +46,8 @@ public class Main implements Initializable {
 
     public void loadProfilPage(MouseEvent mouseEvent) { loadPage("Profile.fxml"); }
 
+    public void loadNotifPage(MouseEvent mouseEvent) {loadPage("Notifications.fxml");}
+
     public void setPageTitle(String title) {
         pageTitleLabel.setText(title);
     }
@@ -72,6 +74,7 @@ public class Main implements Initializable {
                 case "Formulaire.fxml" -> setPageTitle("Formulaire");
                 case "Parametres.fxml" -> setPageTitle("Paramètres");
                 case "Profile.fxml" -> setPageTitle("Profil");
+                case "Notifications.fxml" -> setPageTitle("Notifications");
                 default -> setPageTitle("Page");
             }
         } catch (Exception e) {

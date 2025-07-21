@@ -18,6 +18,8 @@
         <mapping class="com.autorental.model.Reservation" />
         <mapping class="com.autorental.model.Facture"/>
 
+        <mapping class="com.autorental.model.Notification"/>
+
 
     </session-factory>
 </hibernate-configuration>

@@ -1,9 +1,8 @@
 package com.autorental.controllers;
 
+import com.autorental.dao.impl.HibernateUserDaoImpl;
 import com.autorental.exceptions.DAOException;
-import com.autorental.model.Client;
-import com.autorental.model.Facture;
-import com.autorental.model.Reservation;
+import com.autorental.model.*;
 
 import com.autorental.runtime.Testeur;
 import javafx.event.ActionEvent;
@@ -18,6 +17,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 
 public class FactureClient {
 
@@ -29,12 +29,22 @@ public class FactureClient {
 
 
     Testeur testeur = new Testeur();
+    HibernateUserDaoImpl userDao = new HibernateUserDaoImpl();
     private double montantTotal;
     private String selectedReduction = "Aucune réduction";
     private Reservation reservation;
     private Client client;
+    private User user;
     private Main mainController;
+    private MesReservations mesReservationsController;
+    private Notifications notificationsController;
 
+    public void setNotificationsController(Notifications controller) {
+        this.notificationsController = controller;
+    }
+    public void setMesReservationsController(MesReservations controller) {
+        this.mesReservationsController = controller;
+    }
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
         populateFields();
@@ -118,17 +128,43 @@ public class FactureClient {
 
             testeur.updateObject(client, Client.class);
 
-            reservation.setStatut("Enregistrée");
-            testeur.ajouterObject(reservation, Reservation.class);
+            reservation.setStatut("Payé");
+            testeur.updateObject(reservation, Reservation.class);
+
+            //Notifier les admins
+            List<User> allUsers = Testeur.listerObjects(User.class);
+            List<User> admins = allUsers.stream()
+                    .filter(user -> "admin".equalsIgnoreCase(user.getRole()))
+                    .toList();
+            String clientName = client.getPrenom() + " " + client.getNom();
+            String notifMessage = "Le client " + clientName + " vient de régler la somme de "+montantFinal+"suite " +
+                    "à sa demande de réservation.";
+            for (User admin : admins) {
+                Notification notification = new Notification(notifMessage, admin.getId());
+                Testeur.ajouterObject(notification, Notification.class);
+            }
+            //Notifier le client
+            String emailClient = reservation.getClient().getEmail();
+            user = userDao.getUserByClientEmail(emailClient);
+            if (user!= null) {
+                int userId = user.getId();
+                String notifMessageClient = "Paiement effectuée avec succès.";
+                Notification notif = new Notification(notifMessageClient, userId);
+                testeur.ajouterObject(notif, Notification.class);
+            }
 
             Facture facture = new Facture("Facture de " + client.getNom(), reservation, montantFinal);
             testeur.ajouterObject(facture, Facture.class);
 
-            showAlert("Succès", "Réservation enregistrée avec succès !");
-            if (mainController != null) {
-                mainController.loadReservationsPage();
+            showAlert("Succès", "Paiement réussie !");
+            if (mesReservationsController != null) {
+                mesReservationsController.refreshReservationsTable();
             }
-
+            if (notificationsController != null) {
+                notificationsController.refreshNotifications();
+            }
+            Stage stage = (Stage) tarifField.getScene().getWindow();
+            stage.close();
         } catch (DAOException e) {
             showAlert("Erreur", "Une erreur est survenue : " + e.getMessage());
         }
@@ -146,19 +182,6 @@ public class FactureClient {
 
     @FXML
     private void handleCancel(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Main.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Tableau de bord");
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert("Erreur", "Impossible de retourner au formulaire.");
-        }
     }
 
     private void showAlert(String title, String message) {

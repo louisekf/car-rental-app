@@ -81,7 +81,7 @@ public class GestionVehicules {
             e.printStackTrace();
         }
     }
-
+/*
     @FXML
     private void loadModifierVehiculePage() {
         if (mainContentPane == null) return;
@@ -96,7 +96,7 @@ public class GestionVehicules {
             e.printStackTrace();
         }
     }
-
+*/
     @FXML
     private void loadModifierVehiculePage(ActionEvent event) throws IOException {
         Vehicule selected = vehiculeTable.getSelectionModel().getSelectedItem();

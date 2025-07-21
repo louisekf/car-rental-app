@@ -1,19 +1,17 @@
 package com.autorental.controllers;
 
 import com.autorental.dao.impl.HibernateClientDaoImpl;
+import com.autorental.dao.impl.HibernateUserDaoImpl;
 import com.autorental.model.*;
 import com.autorental.runtime.Testeur;
 import com.autorental.exceptions.DAOException;
 import com.autorental.utils.Session;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.util.StringConverter;
 
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -26,8 +24,11 @@ public class Formulaire {
     @FXML private DatePicker dateRetourPicker;
 
     private Reservation reservationTemp;
+    private Reservation reservation;
+    private User user;
 
     Testeur testeur = new Testeur();
+    HibernateUserDaoImpl userDao = new HibernateUserDaoImpl();
 
     private Main mainController;
 
@@ -41,6 +42,30 @@ public class Formulaire {
         loadVehicules();
         loadChauffeurs();
         setupTypeReservationLogic();
+        dateCheck();
+    }
+
+    private Callback<DatePicker, DateCell> getDayCellFactory(LocalDate minDate) {
+        return datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate item, boolean empty) {
+                super.updateItem(item, empty);
+                setDisable(empty || item.isBefore(minDate));
+            }
+        };
+    }
+
+    private void dateCheck(){
+        LocalDate today = LocalDate.now();
+        dateRetraitPicker.setDayCellFactory(getDayCellFactory(today));
+        dateRetourPicker.setDayCellFactory(getDayCellFactory(today));
+
+        dateRetraitPicker.valueProperty().addListener((obs, oldDate, newDate) -> {
+            if (newDate != null) {
+                dateRetourPicker.setDayCellFactory(getDayCellFactory(newDate));
+            }
+        });
+
     }
 
     private void selectTypeReservation() {
@@ -55,6 +80,21 @@ public class Formulaire {
                     .toList();
 
             vehiculeComboBox.setItems(FXCollections.observableArrayList(vehicules));
+            vehiculeComboBox.setConverter(new StringConverter<>() {
+                @Override
+                public String toString(Vehicule vehicule) {
+                    return vehicule != null ? vehicule.getNomVehicule() : "";
+                }
+
+                @Override
+                public Vehicule fromString(String string) {
+                    return vehiculeComboBox.getItems().stream()
+                            .filter(v -> v.getNomVehicule().equals(string))
+                            .findFirst()
+                            .orElse(null);
+                }
+            });
+
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -65,6 +105,21 @@ public class Formulaire {
             List<Chauffeur> chauffeurs = testeur.listerObjects(Chauffeur.class)
                     .stream().filter(Chauffeur::getDispo).toList();
             chauffeurComboBox.setItems(FXCollections.observableArrayList(chauffeurs));
+            chauffeurComboBox.setConverter(new StringConverter<>() {
+                @Override
+                public String toString(Chauffeur chauffeur) {
+                    return chauffeur != null ? chauffeur.getNom() + " " + chauffeur.getPrenom() : "";
+                }
+
+                @Override
+                public Chauffeur fromString(String string) {
+                    return chauffeurComboBox.getItems().stream()
+                            .filter(c -> (c.getNom() + " " + c.getPrenom()).equals(string))
+                            .findFirst()
+                            .orElse(null);
+                }
+            });
+
         } catch (DAOException e) {
             e.printStackTrace();
         }
@@ -104,7 +159,7 @@ public class Formulaire {
             reservationTemp.setVehicule(vehicule);
             reservationTemp.setDate_retrait(java.sql.Date.valueOf(dateRetrait));
             reservationTemp.setDate_retour(java.sql.Date.valueOf(dateRetour));
-            reservationTemp.setStatut(type);
+            reservationTemp.setStatut("En attente");
 
             if ("Avec chauffeur".equals(type)) {
                 if (chauffeur == null) {
@@ -113,25 +168,42 @@ public class Formulaire {
                 }
                 reservationTemp.setChauffeur(chauffeur);
             }
-            openFacturePage();
+            Testeur.ajouterObject(reservationTemp, Reservation.class);
+
+            //Notifier les admins
+            List<User> allUsers = Testeur.listerObjects(User.class);
+            List<User> admins = allUsers.stream()
+                    .filter(user -> "admin".equalsIgnoreCase(user.getRole()))
+                    .toList();
+            String clientName = client.getPrenom() + " " + client.getNom();
+            String notifMessage = "Nouvelle réservation en attente par le client " + clientName + ".";
+            for (User admin : admins) {
+                Notification notification = new Notification(notifMessage, admin.getId());
+                Testeur.ajouterObject(notification, Notification.class);
+            }
+            //Notifier le client
+            String emailClient = reservationTemp.getClient().getEmail();
+            user = userDao.getUserByClientEmail(emailClient);
+            if (user!= null) {
+                int userId = user.getId();
+                String notifMessageClient = "Réservation enregistrée avec succès! En attente de validation.";
+                Notification notif = new Notification(notifMessageClient, userId);
+                testeur.ajouterObject(notif, Notification.class);
+            }
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Réservation envoyée");
+            alert.setHeaderText(null);
+            alert.setContentText("Votre réservation a été envoyée.");
+            alert.showAndWait();
+
+            mainController.loadAccueilPage();
 
         } catch (Exception e) {
             e.printStackTrace();
+            showAlert("Erreur lors de la création de la réservation.");
         }
     }
-
-    private void openFacturePage() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/FactureClient.fxml"));
-        AnchorPane facturePane = loader.load();
-
-        FactureClient controller = loader.getController();
-        controller.setReservation(reservationTemp);
-        controller.setMainController(mainController);
-
-        mainController.getContentPane().getChildren().setAll(facturePane);
-        mainController.setPageTitle("Facture");
-    }
-
 
     private void showAlert(String msg) {
         Alert alert = new Alert(Alert.AlertType.WARNING);

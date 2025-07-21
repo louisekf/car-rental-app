@@ -38,5 +38,12 @@ public class HibernateUserDaoImpl extends HibernateObjectDaoImpl<User>{
         }
     }
 
+    public User getUserByClientEmail(String email) {
+        try (Session session = HibernateConnection.getInstance().openSession()) {
+            return session.createQuery("FROM User WHERE login = :email", User.class)
+                    .setParameter("email", email)
+                    .uniqueResult();
+        }
+    }
 
 }

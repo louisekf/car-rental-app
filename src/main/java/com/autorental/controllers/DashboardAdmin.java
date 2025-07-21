@@ -70,7 +70,7 @@ public class DashboardAdmin  {
         chauffeurColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(
                         cellData.getValue().getChauffeur() != null ?
-                                cellData.getValue().getChauffeur().toString() : "Aucun"
+                                cellData.getValue().getChauffeur().getNom() : "Aucun"
                 )
         );
 

@@ -31,8 +31,8 @@
                                 <Label layoutX="111.0" layoutY="227.0" text="Tarif" />
                                 <TextField fx:id="tarifField" layoutX="111.0" layoutY="244.0" prefHeight="25.0" prefWidth="270.0" />
                                 <ComboBox fx:id="availabilityChoice" layoutX="111.0" layoutY="320.0" prefHeight="25.0" prefWidth="270.0" />
-                                <Button fx:id="saveButton" layoutX="157.0" layoutY="387.0" mnemonicParsing="false" onAction="#onEnregistrer" prefHeight="25.0" prefWidth="77.0" text="Enregistrer" />
-                                <Button fx:id="cancelButton" layoutX="260.0" layoutY="387.0" mnemonicParsing="false" onAction="#onAnnuler" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: black;" text="Annuler" textFill="WHITE" />
+                                <Button fx:id="saveButton" layoutX="157.0" layoutY="367.0" mnemonicParsing="false" onAction="#onEnregistrer" prefHeight="25.0" prefWidth="77.0" text="Enregistrer" />
+                                <Button fx:id="cancelButton" layoutX="260.0" layoutY="367.0" mnemonicParsing="false" onAction="#onAnnuler" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: black;" text="Annuler" textFill="WHITE" />
                         <Label layoutX="111.0" layoutY="296.0" text="Disponibilité" />
                             </children>
                         </Pane>

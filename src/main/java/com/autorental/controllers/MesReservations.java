@@ -9,14 +9,21 @@ import com.autorental.model.Vehicule;
 import com.autorental.runtime.Testeur;
 import com.autorental.utils.Session;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,7 +35,7 @@ public class MesReservations implements Initializable {
     @FXML private TextField idField;
     @FXML private TableView<Reservation> reservations;
     @FXML private TableColumn<Reservation, Integer> colId;
-    @FXML private TableColumn<Reservation, Vehicule> colVehicule;
+    @FXML private TableColumn<Reservation, String> colVehicule;
     @FXML private TableColumn<Reservation, Date> colDate_retrait;
     @FXML private TableColumn<Reservation, Date> colDate_rtr;
     @FXML private TableColumn<Reservation, String> colChauffeur;
@@ -38,6 +45,7 @@ public class MesReservations implements Initializable {
     private final SimpleDateFormat dateFormatter = new SimpleDateFormat("dd/MM/yyyy");
     private Reservation reservation;
     Testeur testeur = new Testeur();
+    private Notifications notificationsController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,7 +76,12 @@ public class MesReservations implements Initializable {
 
     private void setupColumns() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colVehicule.setCellValueFactory(new PropertyValueFactory<>("vehicule"));
+        colVehicule.setCellValueFactory(cellData -> {
+            Vehicule vehicule = cellData.getValue().getVehicule();
+            String display = vehicule != null ? vehicule.getNomVehicule() : "";
+            return new SimpleStringProperty(display);
+        });
+
         colDate_retrait.setCellValueFactory(new PropertyValueFactory<>("date_retrait"));
         colDate_retrait.setCellFactory(column -> new TableCell<Reservation, Date>() {
             @Override
@@ -128,6 +141,41 @@ public class MesReservations implements Initializable {
             showAlert("Erreur", "Erreur lors de la recherche : " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public void onPayerClicked(ActionEvent actionEvent) {
+        Reservation selectedReservation = reservations.getSelectionModel().getSelectedItem();
+
+        if (selectedReservation == null) {
+            showAlert("Sélection requise", "Veuillez sélectionner une réservation à payer.");
+            return;
+        }
+        if (!"Validée".equalsIgnoreCase(selectedReservation.getStatut())) {
+            showAlert("Paiement impossible", "Seules les réservations validées peuvent être payées.");
+            return;
+        }
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/FactureClient.fxml"));
+            Parent factureRoot = loader.load();
+
+            FactureClient controller = loader.getController();
+            controller.setReservation(selectedReservation);
+            controller.setMesReservationsController(this);
+            controller.setNotificationsController(notificationsController);
+
+            Stage stage = new Stage();
+            stage.setTitle("Facturation");
+            stage.setScene(new Scene(factureRoot));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Erreur", "Impossible d'ouvrir la page de facture : " + e.getMessage());
+        }
+    }
+
+    public void refreshReservationsTable() {
+        loadReservationsOfConnectedUser();
     }
 
     private void showAlert(String title, String message) {

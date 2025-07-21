@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -38,6 +39,12 @@ public class MainAdmin implements Initializable {
     @FXML
     public void loadGestionReservationsPage() {loadPage("GestionReservation.fxml");}
 
+    @FXML
+    public void loadClientsPage(ActionEvent actionEvent) {loadPage("LesClients.fxml");}
+
+    @FXML
+    public void onNotifClicked(MouseEvent mouseEvent) {loadPage("Notification.fxml");}
+
     public void setPageTitle(String title) {
         pageTitleLabel.setText(title);
     }
@@ -51,6 +58,8 @@ public class MainAdmin implements Initializable {
                 case "GestionVehicule.fxml" -> setPageTitle("Gestion des véhicules");
                 case "GestionChauffeur.fxml" -> setPageTitle("Gestion des chauffeurs");
                 case "GestionReservation.fxml" -> setPageTitle("Gestion des réservations");
+                case "LesClients.fxml" -> setPageTitle("Les clients");
+                case "Notification.fxml"-> setPageTitle("Notifications");
                 default -> pageTitleLabel.setText("Page");
             }
         } catch (IOException e) {

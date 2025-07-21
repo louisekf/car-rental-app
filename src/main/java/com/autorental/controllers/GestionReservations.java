@@ -37,17 +37,17 @@ public class GestionReservations {
     @FXML
     public void initialize() {
         clientColumn.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getClient().toString())
+                new SimpleStringProperty(cellData.getValue().getClient().getNomComplet())
         );
 
         vehiculeColumn.setCellValueFactory(cellData ->
-                new SimpleStringProperty(cellData.getValue().getVehicule().toString())
+                new SimpleStringProperty(cellData.getValue().getVehicule().getNomVehicule())
         );
 
         chauffeurColumn.setCellValueFactory(cellData ->
                 new SimpleStringProperty(
                         cellData.getValue().getChauffeur() != null ?
-                                cellData.getValue().getChauffeur().toString() : "Aucun"
+                                cellData.getValue().getChauffeur().getNom() : "Aucun"
                 )
         );
 
@@ -87,7 +87,6 @@ public class GestionReservations {
             showAlert("Veuillez sélectionner une réservation.");
             return;
         }
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ModifierStatutReservation.fxml"));
             Parent root = loader.load();
