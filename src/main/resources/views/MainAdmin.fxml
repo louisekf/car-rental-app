@@ -62,6 +62,7 @@
                   <Button mnemonicParsing="false" onAction="#loadGestionChauffeursPage" prefHeight="41.0" prefWidth="150.0" style="-fx-background-color: white;" text="Gestion Chauffeurs" />
                   <Button mnemonicParsing="false" onAction="#loadGestionVehiculesPage" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: white;" text="Gestion Vehicules" />
                   <Button mnemonicParsing="false" onAction="#loadGestionReservationsPage" prefHeight="43.0" prefWidth="149.0" style="-fx-background-color: white;" text="Gestion Reservations" />
+                  <Button mnemonicParsing="false" onAction="#loadClientsPage" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: xhite;" text="Les clients" />
                   <Button mnemonicParsing="false" onAction="#handleDeconnexion" prefHeight="37.0" prefWidth="155.0" style="-fx-background-color: white;" text="Deconnexion">
                      <VBox.margin>
                         <Insets top="252.0" />

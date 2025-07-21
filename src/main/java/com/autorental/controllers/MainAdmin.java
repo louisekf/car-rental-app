@@ -40,6 +40,9 @@ public class MainAdmin implements Initializable {
     public void loadGestionReservationsPage() {loadPage("GestionReservation.fxml");}
 
     @FXML
+    public void loadClientsPage(ActionEvent actionEvent) {loadPage("LesClients.fxml");}
+
+    @FXML
     public void onNotifClicked(MouseEvent mouseEvent) {loadPage("Notifications.fxml");}
 
     public void setPageTitle(String title) {
@@ -55,6 +58,7 @@ public class MainAdmin implements Initializable {
                 case "GestionVehicule.fxml" -> setPageTitle("Gestion des véhicules");
                 case "GestionChauffeur.fxml" -> setPageTitle("Gestion des chauffeurs");
                 case "GestionReservation.fxml" -> setPageTitle("Gestion des réservations");
+                case "LesClients.fxml" -> setPageTitle("Les clients");
                 case "Notifications.fxml"-> setPageTitle("Notifications");
                 default -> pageTitleLabel.setText("Page");
             }
@@ -82,5 +86,4 @@ public class MainAdmin implements Initializable {
             e.printStackTrace();
         }
     }
-
 }
